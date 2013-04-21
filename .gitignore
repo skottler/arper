@@ -15,6 +15,7 @@
 # autoconf
 Makefile
 Makefile.in
+config.h
 
 # Compiled binary
 arper
