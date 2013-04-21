@@ -7,6 +7,7 @@
 #include <arpa/inet.h>
 #include <netinet/if_ether.h>
 #include <ctime>
+#include <unistd.h>
 
 int main(int argc, char **argv) {
     /**
@@ -27,20 +28,20 @@ int main(int argc, char **argv) {
 
     if (getuid()) {
         printf("%s", "Arper must be run as root.\n");
-        return 1;
+        exit(1);
     }
 
     if(dev == NULL) {
-        printf("%s\n",errbuf);
+        printf("%s\n", errbuf);
         exit(1);
     }
 
     printf("Capturing on device: %s\n", dev);
 
-    descr = pcap_open_live(dev,BUFSIZ,0,-1,errbuf);
+    descr = pcap_open_live(dev, BUFSIZ, 0, -1, errbuf);
 
     if(descr == NULL) {
-        printf("pcap_open_live(): %s\n",errbuf);
+        printf("pcap_open_live(): %s\n", errbuf);
         exit(1);
     }
 
