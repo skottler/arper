@@ -45,41 +45,16 @@ if test "$DIE" -eq 1; then
     exit 1
 fi
 
-# No arguments warning
-if test -z "$*"; then
-    echo "WARNING: I'm going to run ./configure with no arguments - if you wish "
-    echo "to pass any to it, please specify them on the $0 command line."
-    echo
-fi
-
-# Libtool
-if grep "^AM_PROG_LIBTOOL" configure.in >/dev/null; then
-  echo "Running: libtoolize --force --copy..."
-  $LIBTOOLIZE --force --copy
-fi
-
-# Aclocal
 echo "Running: $ACLOCAL $ACLOCAL_FLAGS..."
 rm -f aclocal.m4
 $ACLOCAL $ACLOCAL_FLAGS
 
-# Autoheader
-if grep "^AM_CONFIG_HEADER" configure.in >/dev/null; then
-  echo "Running: autoheader..."
-  $AUTOHEADER
-fi
-
-# Automake
-# --foreign = Do not enforce GNU standards
-#             (ChangeLog, NEWS, THANKS, etc. files)
 echo "Running: automake -a $am_opt..."
 $AUTOMAKE -a --foreign $am_opt
 
-# Autoconf
 echo "Running: autoconf..."
 $AUTOCONF
 
-# ./configure
 if test x$NO_CONFIGURE != x; then
   exit;
 fi
