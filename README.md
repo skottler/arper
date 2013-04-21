@@ -11,8 +11,9 @@ I often work from coffee shops or conferences on public wifi networks. Generally
 ## Installation
 The `arper` executable will be installed to `/usr/local/bin/arper` by default. Ensure `/usr/local/bin` is in your `PATH`.
 
-1. `./autogen.sh`
-2. `make`
+1. Ensure you have libpcap-dev(el) and autotools installed on your system.
+2. `./autogen.sh`
+3. `make`
 
 ## Notes
 * ARP spoofing is occasionally used to make LAN's highly available. It's impossible to determine the difference between spoofing for HA versus malicious use.
