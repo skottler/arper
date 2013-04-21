@@ -3,6 +3,8 @@ Arper
 
 Arper is a tiny end-user tool for detecting ARP poisoning on public networks.
 
+[![Build Status](https://travis-ci.org/skottler/arper.png)](https://travis-ci.org/skottler/arper)
+
 ## Purpose
 I often work from coffee shops or conferences on public wifi networks. Generally, this is fine and I use a VPN whenever I work on things that need to be kept private (email, IRC, git, etc.). Even still, I want to know when a network I'm using has some rogue actors on it - ARP poisoning attacks are easy to execute and relatively hard to detect without some knowledge of how they work. This tool aims to provide a simple binary answer as to whether ARP spoofing is taking place.
 
