@@ -25,6 +25,11 @@ int main(int argc, char **argv) {
 
     dev = pcap_lookupdev(errbuf);
 
+    if (getuid()) {
+        printf("%s", "Arper must be run as root.\n");
+        return 1;
+    }
+
     if(dev == NULL) {
         printf("%s\n",errbuf);
         exit(1);
