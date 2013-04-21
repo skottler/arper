@@ -1,9 +1,7 @@
 language: cpp
 compiler:
-  - gcc
   - clang
 script: ./autogen.sh && make
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get upgrade -y
   - sudo apt-get install -qq libpcap-dev
