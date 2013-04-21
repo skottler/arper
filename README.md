@@ -6,6 +6,12 @@ Arper is a tiny end-user tool for detecting ARP poisoning on public networks.
 ## Purpose
 I often work from coffee shops or conferences on public wifi networks. Generally, this is fine and I use a VPN whenever I work on things that need to be kept private (email, IRC, git, etc.). Even still, I want to know when a network I'm using has some rogue actors on it - ARP poisoning attacks are easy to execute and relatively hard to detect without some knowledge of how they work. This tool aims to provide a simple binary answer as to whether ARP spoofing is taking place.
 
+## Installation
+The `arper` executable will be installed to `/usr/local/bin/arper` by default. Ensure `/usr/local/bin` is in your `PATH`.
+
+1. `./autogen.sh`
+2. `make`
+
 ## Notes
 * ARP spoofing is occasionally used to make LAN's highly available. It's impossible to determine the difference between spoofing for HA versus malicious use.
 
