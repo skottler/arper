@@ -1,4 +1,5 @@
 #!/bin/sh
+set -x
 # Run this to generate all the initial makefiles, etc.
 
 PROJECT=arper
