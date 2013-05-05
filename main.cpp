@@ -36,8 +36,6 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
-    printf("Capturing on device: %s\n", dev);
-
     descr = pcap_open_live(dev, BUFSIZ, 0, -1, errbuf);
 
     if(descr == NULL) {
@@ -48,10 +46,11 @@ int main(int argc, char **argv) {
     packet = pcap_next(descr,&hdr);
 
     if(packet == NULL) {
-        printf("Didn't grab packet\n");
+        printf("Failed to retrieve packet on %s\n", dev);
         exit(1);
     }
 
+    printf("Capturing on device: %s\n", dev);
     printf("Grabbed packet of length %d\n", hdr.len);
     printf("Recieved at ..... %s\n", ctime((const time_t*)&hdr.ts.tv_sec));
     printf("Ethernet address length is %d\n", ETHER_HDR_LEN);
