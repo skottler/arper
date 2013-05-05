@@ -14,34 +14,34 @@ test -z "$ACLOCAL" && ACLOCAL=aclocal
 test -z "$AUTOCONF" && AUTOCONF=autoconf
 test -z "$AUTOHEADER" && AUTOHEADER=autoheader
 if [ -x /usr/bin/glibtool ]; then
- test -z "$LIBTOOL" && LIBTOOL=glibtool
- test -z "$LIBTOOLIZE" && LIBTOOLIZE=glibtoolize
+  test -z "$LIBTOOL" && LIBTOOL=glibtool
+  test -z "$LIBTOOLIZE" && LIBTOOLIZE=glibtoolize
 else
- test -z "$LIBTOOL" && LIBTOOL=libtool
- test -z "$LIBTOOLIZE" && LIBTOOLIZE=libtoolize
+  test -z "$LIBTOOL" && LIBTOOL=libtool
+  test -z "$LIBTOOLIZE" && LIBTOOLIZE=libtoolize
 fi
 
 DIE=0
 
 ($AUTOCONF --version) < /dev/null > /dev/null 2>&1 || {
-    echo
-    echo "You must have autoconf installed to compile $PROJECT."
-    echo "Download the appropriate package for your distribution,"
-    echo "or get the source tarball at ftp://ftp.gnu.org/pub/gnu/"
-    DIE=1
+  echo
+  echo "You must have autoconf installed to compile $PROJECT."
+  echo "Download the appropriate package for your distribution,"
+  echo "or get the source tarball at ftp://ftp.gnu.org/pub/gnu/"
+  DIE=1
 }
 
 ($AUTOMAKE --version) < /dev/null > /dev/null 2>&1 || {
-    echo
-    echo "You must have automake installed to compile $PROJECT."
-    echo "Download the appropriate package for your distribution, or"
-    echo "get http://ftp.gnu.org/gnu/automake/automake-1.10.2.tar.gz"
-    echo "(or a newer version if it is available)"
-    DIE=1
+  echo
+  echo "You must have automake installed to compile $PROJECT."
+  echo "Download the appropriate package for your distribution, or"
+  echo "get http://ftp.gnu.org/gnu/automake/automake-1.10.2.tar.gz"
+  echo "(or a newer version if it is available)"
+  DIE=1
 }
 
 if test "$DIE" -eq 1; then
-    exit 1
+  exit 1
 fi
 
 echo "Running: $ACLOCAL $ACLOCAL_FLAGS..."
