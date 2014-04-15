@@ -31,21 +31,21 @@ int main(int argc, char **argv) {
         exit(1);
     }
 
-    if(dev == NULL) {
+    if (dev == NULL) {
         printf("%s\n", errbuf);
         exit(1);
     }
 
     descr = pcap_open_live(dev, BUFSIZ, 0, -1, errbuf);
 
-    if(descr == NULL) {
+    if (descr == NULL) {
         printf("pcap_open_live(): %s\n", errbuf);
         exit(1);
     }
 
     packet = pcap_next(descr,&hdr);
 
-    if(packet == NULL) {
+    if (packet == NULL) {
         printf("Failed to retrieve packet on %s\n", dev);
         exit(1);
     }
@@ -85,8 +85,8 @@ int main(int argc, char **argv) {
     i = ETHER_ADDR_LEN;
     printf("Source Address:  ");
 
-    do{
-        printf("%s%x",(i == ETHER_ADDR_LEN) ? " " : ":",*ptr++);
+    do {
+        printf("%s%x",(i == ETHER_ADDR_LEN) ? " " : ":", *ptr++);
     }
     while(--i>0);
     printf("\n");
